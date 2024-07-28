@@ -15,10 +15,15 @@ def create_window():
         '0', '.', '=', '+'
     ]
 
+    def button_click(value):
+        current_text = display.get()
+        display.delete(0, tk.END)
+        display.insert(0, current_text + value)
+
     row_val = 1
     col_val = 0
     for button in buttons:
-        tk.Button(window, text=button, width=5, height=2, font=("Arial", 18)).grid(row=row_val, column=col_val)
+        tk.Button(window, text=button, width=5, height=2, font=("Arial", 18), command=lambda val=button: button_click(val)).grid(row=row_val, column=col_val)
         col_val += 1
         if col_val > 3:
             col_val = 0
