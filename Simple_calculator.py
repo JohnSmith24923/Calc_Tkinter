@@ -12,7 +12,8 @@ def create_window():
         '7', '8', '9', '/',
         '4', '5', '6', '*',
         '1', '2', '3', '-',
-        '0', '.', '=', '+'
+        '0', '.', '=', '+',
+        'C'
     ]
 
     def button_click(value):
@@ -24,6 +25,8 @@ def create_window():
             except:
                 display.delete(0, tk.END)
                 display.insert(0, "Error")
+        elif value == "C":
+            display.delete(0, tk.END)
         else:
             current_text = display.get()
             display.delete(0, tk.END)
