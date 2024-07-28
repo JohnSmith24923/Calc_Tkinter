@@ -16,9 +16,18 @@ def create_window():
     ]
 
     def button_click(value):
-        current_text = display.get()
-        display.delete(0, tk.END)
-        display.insert(0, current_text + value)
+        if value == "=":
+            try:
+                result = eval(display.get())
+                display.delete(0, tk.END)
+                display.insert(0, str(result))
+            except:
+                display.delete(0, tk.END)
+                display.insert(0, "Error")
+        else:
+            current_text = display.get()
+            display.delete(0, tk.END)
+            display.insert(0, current_text + value)
 
     row_val = 1
     col_val = 0
